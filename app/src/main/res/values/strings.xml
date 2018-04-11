@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gravitate</string>
+    <string name="tab_fb">Facebook Posts</string>
+    <string name="tab_insta">Instagram Photos</string>
+    <string name="tab_yt">YouTube Videos</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_settings">Settings</string>
+</resources>
