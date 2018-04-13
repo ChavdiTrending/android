@@ -1,12 +1,15 @@
 package com.absathe.gravitate;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
+import com.absathe.gravitate.adapters.ViewPagerFragmentAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FBFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     protected void setBottomNavigationBar() {
         AHBottomNavigation bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+        final AHBottomNavigationViewPager viewPager = (AHBottomNavigationViewPager) findViewById(R.id.view_pager);
+        ViewPagerFragmentAdapter adapter = new ViewPagerFragmentAdapter(getSupportFragmentManager());
+
+        viewPager.setAdapter(adapter);
 
         AHBottomNavigationItem item0 = new AHBottomNavigationItem(R.string.tab_home, R.drawable.ic_home, R.color.colorPrimary);
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_fb, R.drawable.ic_facebook, R.color.color_fb);
@@ -33,5 +40,18 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setForceTint(true);
         bottomNavigation.setColored(true);
         bottomNavigation.setTranslucentNavigationEnabled(true);
+
+        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
+            @Override
+            public boolean onTabSelected(int position, boolean wasSelected) {
+                viewPager.setCurrentItem(position);
+                return true;
+            }
+        });
     }
+
+    public void onFacebookFragmentInteraction(String string){
+        Toast.makeText(getApplicationContext(), "I'm in a click handler with valid context", Toast.LENGTH_LONG).show();
+    }
+
 }
