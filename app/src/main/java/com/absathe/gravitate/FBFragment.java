@@ -3,6 +3,7 @@ package com.absathe.gravitate;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -109,6 +110,7 @@ public class FBFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fb, container, false);
         recyclerView = view.findViewById(R.id.fbfragment_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         itemAdapter = new FBItemAdapter();
         itemAdapter.setItemList(fbItemList);
         recyclerView.setAdapter(itemAdapter);

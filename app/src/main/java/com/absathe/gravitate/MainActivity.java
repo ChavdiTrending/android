@@ -1,8 +1,8 @@
 package com.absathe.gravitate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.absathe.gravitate.adapters.ViewPagerFragmentAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity implements FBFragment.OnFrag
     }
 
     public void onFacebookFragmentInteraction(String string){
-        Toast.makeText(getApplicationContext(), "I'm in a click handler with valid context", Toast.LENGTH_LONG).show();
+        Intent viewPost = new Intent(MainActivity.this, FBPostView.class);
+        viewPost.putExtra("webViewURL", string);
+        MainActivity.this.startActivity(viewPost);
     }
 
 }

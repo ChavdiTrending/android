@@ -2,11 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.absathe.gravitate.FBFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.absathe.gravitate.FBFragment"
+    android:windowActionBarOverlay="false"
+    android:fitsSystemWindows="true">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fbfragment_recycler"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 </FrameLayout>
