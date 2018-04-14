@@ -52,8 +52,7 @@ public class FBItemAdapter extends RecyclerView.Adapter<FBItemAdapter.ViewHolder
         WebSettings webSettings = webView.getSettings();
         boolean isVideo = item.getWebViewURL().contains("video");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR_MR1) {
-            webSettings.setAppCacheEnabled(true);
-            webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+            webSettings.setAppCacheEnabled(false);
             webSettings.setJavaScriptEnabled(true);
             webSettings.setDomStorageEnabled(true);
             webSettings.setLoadWithOverviewMode(true);

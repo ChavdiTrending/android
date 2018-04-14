@@ -16,8 +16,7 @@ public class FBPostView extends AppCompatActivity {
     private String webViewURL = null;
     private WebView webView = null;
     private String js = "javascript:" +
-                        "document.getElementById(\"mobile_login_bar\").style.display=\"none\";" +
-                        "document.getElementById(\"header\").style.display=\"none\";";
+            "document.getElementById(\"mobile_login_bar\").style.display=\"none\";\n";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +35,7 @@ public class FBPostView extends AppCompatActivity {
     private void renderWebView() {
         Toast.makeText(FBPostView.this, "Initializing", Toast.LENGTH_LONG).show();
         WebSettings webSettings = webView.getSettings();
-        webSettings.setAppCacheEnabled(true);
-        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        webSettings.setAppCacheEnabled(false);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
         webView.setWebViewClient(new WebViewClient() {
@@ -54,6 +52,7 @@ public class FBPostView extends AppCompatActivity {
 
                     }
                 });
+                Toast.makeText(FBPostView.this, "I'm done loading the JS", Toast.LENGTH_LONG).show();
             }
         });
         webView.loadUrl(webViewURL);
