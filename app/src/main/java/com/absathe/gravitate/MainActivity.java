@@ -10,7 +10,12 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 
 public class MainActivity extends AppCompatActivity
-        implements FBFragment.OnFragmentInteractionListener, InstaFragment.OnFragmentInteractionListener{
+        implements
+        HomeFragment.OnFragmentInteractionListener,
+        FBFragment.OnFragmentInteractionListener,
+        InstaFragment.OnFragmentInteractionListener,
+        YTFragment.OnFragmentInteractionListener,
+        SettingsFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,7 @@ public class MainActivity extends AppCompatActivity
         ViewPagerFragmentAdapter adapter = new ViewPagerFragmentAdapter(getSupportFragmentManager());
 
         viewPager.setAdapter(adapter);
-
+        viewPager.setCurrentItem(0, true);
         AHBottomNavigationItem item0 = new AHBottomNavigationItem(R.string.tab_home, R.drawable.ic_home, R.color.colorPrimary);
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_fb, R.drawable.ic_facebook, R.color.color_fb);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_insta, R.drawable.ic_instagram, R.color.color_insta);
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
-                viewPager.setCurrentItem(position);
+                viewPager.setCurrentItem(position, true);
                 return true;
             }
         });

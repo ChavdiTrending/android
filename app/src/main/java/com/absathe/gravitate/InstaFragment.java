@@ -124,8 +124,6 @@ public class InstaFragment extends Fragment {
         adapter.setInstaItemList(instaItemList);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        Toast.makeText(getActivity(), "I was called tho", Toast.LENGTH_LONG).show();
-        System.out.println("oncreateView : I was called");
         return view;
     }
 

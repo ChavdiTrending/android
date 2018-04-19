@@ -11,4 +11,5 @@
     <string name="view">View</string>
     <string name="title_activity_fbpost_view">Gravitate - Facebook</string>
     <string name="fbpost_report_bug">Report a bug</string>
+    <string name="error">Error</string>
 </resources>
