@@ -3,7 +3,7 @@ package com.absathe.gravitate.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.absathe.gravitate.FBFragment;
+import com.absathe.gravitate.InstaFragment;
 
 /**
  * Created by ABSathe on 13-04-2018.
@@ -17,7 +17,7 @@ public class ViewPagerFragmentAdapter extends android.support.v4.app.FragmentPag
 
     @Override
     public Fragment getItem(int position) {
-        return new FBFragment();
+        return new InstaFragment();
     }
 
     @Override

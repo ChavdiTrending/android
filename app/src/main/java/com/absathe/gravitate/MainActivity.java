@@ -9,7 +9,8 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 
-public class MainActivity extends AppCompatActivity implements FBFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity
+        implements FBFragment.OnFragmentInteractionListener, InstaFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
