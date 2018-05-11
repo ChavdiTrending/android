@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.absathe.gravitate.InstagramView"
+    tools:showIn="@layout/activity_instagram_view">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF111111"
+            android:layout_gravity="top|center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+                <ImageView
+                    android:id="@+id/instaview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/error"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/instaview_caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text="Error loading caption"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+        <!-- TODO make this view align to bottom of the screen -->
+    </RelativeLayout>
+</LinearLayout>
