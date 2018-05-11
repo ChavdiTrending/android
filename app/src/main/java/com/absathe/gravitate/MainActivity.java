@@ -12,6 +12,8 @@ import com.absathe.gravitate.items.NetworkHandling;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
+import com.mikepenz.aboutlibraries.Libs;
+import com.mikepenz.aboutlibraries.LibsBuilder;
 
 public class MainActivity extends AppCompatActivity
         implements
@@ -91,5 +93,12 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(MainActivity.this, "Unhandled exception " + e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onHomeFragmentInteraction() {
+        new LibsBuilder()
+                .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
+                .start(this);
     }
 }

@@ -1,12 +1,16 @@
 package com.absathe.gravitate;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -66,8 +70,25 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        TextView text = view.findViewById(R.id.myTextView);
-        text.setText("This is hella lit");
+        TextView versionText = view.findViewById(R.id.veersion_text);
+        TextView updatedText = view.findViewById(R.id.update_date);
+        Button about = view.findViewById(R.id.about);
+        try {
+            PackageInfo pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
+            String version = pInfo.versionName;
+            versionText.setText(version);
+            SharedPreferences pref = getActivity().getSharedPreferences("JSONData", Context.MODE_PRIVATE);
+            String updateDate = pref.getString("Last Modified", null);
+            updatedText.setText(updateDate);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onHomeFragmentInteraction();
+            }
+        });
         return view;
     }
 
@@ -105,6 +126,7 @@ public class HomeFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
+        void onHomeFragmentInteraction();
         // TODO: Update argument type and name
     }
 }

@@ -38,7 +38,7 @@
             android:layout_gravity="bottom|center"
             android:text="Error loading caption"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="#ffffffff"
             android:visibility="gone"/>
         <!-- TODO make this view align to bottom of the screen -->
     </RelativeLayout>

@@ -13,4 +13,10 @@
     <string name="fbpost_report_bug">Report a bug</string>
     <string name="error">Error</string>
     <string name="title_activity_instagram_view">InstagramView</string>
+    <string name="app_version">App Version :  </string>
+    <string name="local_database_updated_on">Local Database Updated On :</string>
+
+    <string name="aboutLibraries_description_showIcon">true</string>
+    <string name="aboutLibraries_description_showVersion">true</string>
+    <string name="aboutLibraries_description_text">Gravitate is an attempt to combine social media apps into one single application. So that lazy and nerdy peopple can keep up to date on the internet without having to open multiple apps.</string>
 </resources>

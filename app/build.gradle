@@ -2,12 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.absathe.gravitate"
         minSdkVersion 22
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.1-beta"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,15 +29,28 @@ dependencies {
     implementation 'com.android.support:support-v4:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
-
-    compile 'petrov.kristiyan:colorpicker-library:1.1.6'
+    implementation 'com.android.support:support-annotations:26.1.0'
+    compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.volley:volley:1.1.0'
     compile 'com.aurelhubert:ahbottomnavigation:2.1.0'
+    compile('com.mikepenz:aboutlibraries:6.0.8@aar') {
+        transitive = true
+    }
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.github.bumptech.glide:glide:4.2.0'
+    implementation 'com.mikepenz:fastadapter:3.2.5'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+configurations.all {
+    resolutionStrategy.force "com.mikepenz:fastadapter:3.2.5"
+    resolutionStrategy.force "com.android.support:support-v4:26.1.0"
+    resolutionStrategy.force "com.android.support:appcompat-v7:26.1.0"
+    resolutionStrategy.force "com.android.support:cardview-v7:26.1.0"
+    resolutionStrategy.force "com.android.support:recyclerview-v7:26.1.0"
+    resolutionStrategy.force "com.android.support:design:26.1.0"
+    resolutionStrategy.force "com.android.support:support-annotations:26.1.0"
 }
