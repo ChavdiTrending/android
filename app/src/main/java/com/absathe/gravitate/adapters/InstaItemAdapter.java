@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.absathe.gravitate.InstaFragment;
 import com.absathe.gravitate.R;
 import com.absathe.gravitate.items.InstaItem;
 import com.bumptech.glide.Glide;
@@ -37,12 +38,11 @@ public class InstaItemAdapter extends RecyclerView.Adapter<InstaItemAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        InstaItem item = instaItemList.get(position);
+        final InstaItem item = instaItemList.get(position);
         final ImageView loading = holder.loadingImage;
         final ImageView main = holder.mainImage;
         Context context = holder.itemView.getContext();
-        System.out.println("I was called and I have the context " +  context);
-        item.setImageURL("https://scontent-frx5-1.cdninstagram.com/vp/69df18ad0c053b6d351e8d304005ac2e/5B57525A/t51.2885-15/e35/29740826_214711292448789_8802688726175055872_n.jpg");
+        System.out.println("I was called and I have the context " + item.getImageURL() + " i = " + position);
         Glide.with(context)
                 .load(item.getImageURL())
                 .listener(new RequestListener<Drawable>() {
@@ -65,7 +65,12 @@ public class InstaItemAdapter extends RecyclerView.Adapter<InstaItemAdapter.View
                 })
                 .apply(RequestOptions.centerCropTransform())
                 .into(main);
-
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InstaFragment.callTheMainFunction(item.getImageURL());
+            }
+        });
     }
 
     @Override

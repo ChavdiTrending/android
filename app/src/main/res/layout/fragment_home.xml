@@ -2,12 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="?attr/actionBarSize"
+    android:fitsSystemWindows="true"
+    android:windowActionBarOverlay="false"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.absathe.gravitate.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="0dp"
+        android:id="@+id/myTextView"/>
+
 
 </FrameLayout>

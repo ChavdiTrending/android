@@ -6,7 +6,7 @@ package com.absathe.gravitate.items;
 
 public class InstaItem {
     private String imageURL;
-
+    private String caption;
     public InstaItem() {
         this.imageURL="something else";
     }
@@ -21,5 +21,13 @@ public class InstaItem {
 
     public String getImageURL() {
         return this.imageURL;
+    }
+
+    public void setCaption(String string) {
+        this.caption = string;
+    }
+
+    public String getCaption() {
+        return this.caption;
     }
 }

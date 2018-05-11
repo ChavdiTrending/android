@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.absathe.gravitate.R;
+import com.absathe.gravitate.YTFragment;
 import com.absathe.gravitate.items.YTItem;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -38,7 +39,7 @@ public class YTItemAdapter extends RecyclerView.Adapter<YTItemAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        YTItem item = ytItemList.get(position);
+        final YTItem item = ytItemList.get(position);
         final ImageView thumbnail = holder.thumbnail;
         TextView title = holder.title;
         Button open_in_app = holder.open_in_app;
@@ -61,6 +62,12 @@ public class YTItemAdapter extends RecyclerView.Adapter<YTItemAdapter.ViewHolder
                 .apply(RequestOptions.centerCropTransform())
                 .into(thumbnail);
         title.setText(item.getVideoTitle());
+        open_in_browser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                YTFragment.openInBrowser(item.getVideoURL());
+            }
+        });
     }
 
     @Override

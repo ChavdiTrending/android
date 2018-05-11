@@ -49,8 +49,10 @@
                     android:text="Open"
                     android:layout_gravity="right"
                     android:id="@+id/ytitem_open_in_app"
+                    android:visibility="gone"
                     style="?android:attr/buttonBarButtonStyle"
                     />
+                <!-- TODO in future updates(if ever lol) handle this in app -->
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

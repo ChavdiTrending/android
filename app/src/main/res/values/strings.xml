@@ -12,4 +12,5 @@
     <string name="title_activity_fbpost_view">Gravitate - Facebook</string>
     <string name="fbpost_report_bug">Report a bug</string>
     <string name="error">Error</string>
+    <string name="title_activity_instagram_view">InstagramView</string>
 </resources>
